@@ -34,4 +34,4 @@ dlaunch is a single-binary Rust CLI that gives every project directory its own p
 - Research agents: read code, grep patterns, check tests
 - Implementation: always done in main context
 - Test after every change: `cargo test`
-- Commit with: `git -c user.name="bkataru" -c user.email="baalateja.k@gmail.com" commit`
+- Commit with: `git -c user.name="Abhijay Bharathan" -c user.email="abhijaybharathan@gmail.com" commit`

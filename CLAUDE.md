@@ -45,7 +45,7 @@ Warning acknowledgement: `~/.dlaunch_warning_acknowledged` (empty marker file).
 
 ## Conventions
 
-- Git author: `bkataru <baalateja.k@gmail.com>`
+- Git author: `Abhijay Bharathan <abhijaybharathan@gmail.com>`
 - No hardcoded paths — always use `dirs::home_dir()`
 - `--dangerously-skip-permissions` is intentional and documented
 - Run `cargo test` before every commit
