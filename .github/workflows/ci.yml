@@ -30,13 +30,6 @@
 # explicitly via dtolnay/rust-toolchain@stable. The e2e suite resolves the
 # mock_claude helper from CARGO_MANIFEST_DIR/target, so the job must NOT
 # override CARGO_TARGET_DIR — it uses cargo's default.
-#
-# IMPORTANT — the repo's dev-dependencies (assert_cmd, predicates, tempfile)
-# are missing from Cargo.toml/Cargo.lock at first authoring, so `cargo test`
-# and this gate are RED on main until the manifest fix lands (tracked issue;
-# the adding PR is closed-held with the branch retained for a zero-change
-# reopen). The measured numbers encoded below are from a local run with the
-# dev-dependencies present: 23/23 tests green.
 
 name: CI
 
@@ -127,10 +120,8 @@ jobs:
 
       - name: coverage gate (tarpaulin, llvm engine)
         # Single-package repo (no workspace members), so no --workspace.
-        # No dev-deps are pinned in the repo yet, so this is red until the
-        # manifest ships assert_cmd/predicates/tempfile — see the issue this
-        # PR references. Uses cargo's default target dir: the e2e suite
-        # resolves its mock_claude helper from CARGO_MANIFEST_DIR/target.
+        # Uses cargo's default target dir: the e2e suite resolves its
+        # mock_claude helper from CARGO_MANIFEST_DIR/target.
         run: >-
           cargo tarpaulin --engine Llvm --locked
           --out Lcov --fail-under "$COVERAGE_FLOOR" --timeout 300
